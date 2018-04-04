@@ -1,0 +1,24 @@
+---
+- hosts: "{{ ambari_ip }}"
+  roles:
+  - ambari_node 
+  tasks:
+  - debug: msg="setup completed on ambari"
+
+- hosts: "{{ metron_ip }}"
+  roles:
+  - metron_node
+  tasks:
+  - debug: msg="setup completed on metron"
+
+- hosts: "{{ hadoop_node1_ip }}"
+  roles:
+  - node1_node
+  tasks:
+  - debug: msg="setup completed on node1"
+
+- hosts: "{{ hadoop_node2_ip }}"
+  roles:
+  - node2_node
+  tasks:
+  - debug: msg="setup completed on node2"
